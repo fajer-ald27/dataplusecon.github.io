@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DataPlusEcon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,9 +14,7 @@
       --ink-muted: #6b6b67;
       --ink-faint: #b0afa8;
       --surface: #f9f8f5;
-      --white: #ffffff;
       --accent: #2a5c45;
-      --accent-light: #e8f2ed;
       --border: #e4e3dc;
       --serif: 'DM Serif Display', Georgia, serif;
       --sans: 'DM Sans', system-ui, sans-serif;
@@ -43,43 +41,31 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 56px;
+      height: 96px;
     }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .nav-logo-mark {
-      width: 36px;
-      height: 36px;
+    .logo {
+      width: 72px;
+      height: 72px;
       background: var(--ink);
       border-radius: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      line-height: 1;
-      padding: 6px;
+      line-height: 1.05;
+      text-decoration: none;
       flex-shrink: 0;
     }
 
-    .nav-logo-mark span {
-      display: block;
+    .logo span {
       color: #fff;
-      font-family: var(--sans);
       font-weight: 700;
-      font-size: 9px;
+      font-size: 15px;
       letter-spacing: -0.02em;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
 
     nav ul a {
       font-size: 0.8rem;
@@ -88,393 +74,109 @@
       text-transform: uppercase;
       color: var(--ink-muted);
       text-decoration: none;
-      transition: color 0.2s;
     }
 
     nav ul a:hover { color: var(--accent); }
 
-    /* HERO */
-    .hero {
-      max-width: 800px;
+    /* SECTIONS */
+    section {
+      max-width: 760px;
       margin: 0 auto;
-      padding: 7rem 2rem 5rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      padding: 4.5rem 2rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--accent);
-    }
+    section:last-of-type { border-bottom: none; }
 
     h1 {
       font-family: var(--serif);
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
       line-height: 1.1;
       letter-spacing: -0.02em;
-      color: var(--ink);
-      max-width: 620px;
+      font-weight: 400;
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    h1 em { color: var(--accent); }
 
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--ink-muted);
-      max-width: 520px;
-      line-height: 1.7;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 0.75rem 1.6rem;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .btn-primary:hover { opacity: 0.85; }
-
-    .btn-ghost {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--ink-muted);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* DIVIDER */
-    .divider {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    /* ABOUT */
-    .about {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1.8fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      padding-top: 0.25rem;
-    }
-
-    .about-text h2 {
+    h2 {
       font-family: var(--serif);
-      font-size: 1.75rem;
-      line-height: 1.25;
+      font-size: 1.6rem;
+      font-weight: 400;
       letter-spacing: -0.01em;
       margin-bottom: 1.25rem;
     }
 
-    .about-text p {
-      color: var(--ink-muted);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
+    p { color: var(--ink-muted); }
 
-    /* TOPICS */
     .topics {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 5rem 2rem;
-    }
-
-    .topics-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .topics-header {
+      list-style: none;
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
-    .topics-header h2 {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      letter-spacing: -0.01em;
-    }
-
-    .topics-header span {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-    }
-
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1px;
-      background: var(--border);
+    .topics li {
       border: 1px solid var(--border);
-    }
-
-    .topic-card {
-      background: var(--white);
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .topic-number {
-      font-family: var(--serif);
-      font-size: 2rem;
-      color: var(--accent-light);
-      line-height: 1;
-    }
-
-    .topic-name {
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    .topic-desc {
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
-
-    /* LATEST */
-    .latest {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .latest h2 {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      letter-spacing: -0.01em;
-      margin-bottom: 2.5rem;
-    }
-
-    .post-list { display: flex; flex-direction: column; }
-
-    .post-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 1.5rem;
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: opacity 0.2s;
-    }
-
-    .post-item:hover { opacity: 0.7; }
-
-    .post-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      padding-top: 0.2rem;
-    }
-
-    .post-date {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--ink-faint);
-    }
-
-    .post-tag {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .post-title {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.4rem;
-    }
-
-    .post-excerpt {
-      font-size: 0.875rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
-
-    /* SUBSCRIBE */
-    .subscribe {
-      background: var(--accent);
-      padding: 5rem 2rem;
-    }
-
-    .subscribe-inner {
-      max-width: 800px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .subscribe h2 {
-      font-family: var(--serif);
-      font-size: 2rem;
-      color: #fff;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-    }
-
-    .subscribe p {
-      color: rgba(255,255,255,0.7);
+      padding: 0.4rem 0.9rem;
       font-size: 0.9rem;
-      margin-top: 0.75rem;
-      line-height: 1.7;
     }
 
-    .subscribe-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+    form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
-    .subscribe-form input[type="email"] {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      padding: 0.75rem 1rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .subscribe-form input[type="email"]::placeholder { color: rgba(255,255,255,0.45); }
-    .subscribe-form input[type="email"]:focus { border-color: rgba(255,255,255,0.6); }
-
-    .subscribe-form button {
+    input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      border: 1px solid var(--border);
       background: #fff;
-      color: var(--accent);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      padding: 0.7rem 1rem;
+    }
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
       font-family: var(--sans);
       font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      border: none;
-      padding: 0.75rem 1.6rem;
+      padding: 0.7rem 1.4rem;
       cursor: pointer;
-      align-self: flex-start;
-      transition: opacity 0.2s;
-    }
-
-    .subscribe-form button:hover { opacity: 0.85; }
-
-    .subscribe-note {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.45);
     }
 
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-logo {
-      font-family: var(--serif);
-      font-size: 1rem;
-      color: var(--ink);
-    }
-
-    .footer-logo span { color: var(--accent); }
-
-    .footer-links {
-      display: flex;
+      justify-content: center;
       gap: 1.5rem;
-      list-style: none;
+      flex-wrap: wrap;
     }
 
-    .footer-links a {
+    footer a {
       font-size: 0.8rem;
       color: var(--ink-faint);
       text-decoration: none;
-      transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--accent); }
+    footer a:hover { color: var(--accent); }
 
     @media (max-width: 600px) {
-      .about { grid-template-columns: 1fr; gap: 1.5rem; }
-      .subscribe-inner { grid-template-columns: 1fr; }
-      .post-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      nav ul { gap: 1.25rem; }
+      nav { height: 80px; padding: 0 1rem; }
+      .logo { width: 60px; height: 60px; }
+      .logo span { font-size: 12px; }
+      nav ul { gap: 1rem; }
+      section { padding: 3rem 1rem; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a class="nav-logo" href="#">
-      <div class="nav-logo-mark">
-        <span>data</span>
-        <span>+econ</span>
-      </div>
+    <a class="logo" href="#">
+      <span>data</span>
+      <span>+econ</span>
     </a>
     <ul>
       <li><a href="#about">About</a></li>
@@ -483,128 +185,42 @@
     </ul>
   </nav>
 
-  <section class="hero">
-    <span class="hero-eyebrow">Articles · Literature Reviews · Analysis</span>
-    <h1>Nerdy writing on <em>data</em> and economics</h1>
-    <p class="hero-sub">
-      Research breakdowns, literature reviews, and sharp commentary for anyone who thinks carefully about how data and economic systems shape the world.
-    </p>
-    <div class="hero-cta">
-      <a href="#subscribe" class="btn-primary">Subscribe — it's free</a>
-      <a href="#writing" class="btn-ghost">Read the latest</a>
-    </div>
+  <section>
+    <h1>Writing on <em>data</em> and economics</h1>
   </section>
 
-  <div class="divider"></div>
-
-  <section class="about" id="about">
-    <p class="about-label">About</p>
-    <div class="about-text">
-      <h2>Rigorous ideas, written to be read</h2>
-      <p>
-        data+econ is a publication covering causal inference, algorithmic systems, behavioural economics, and the messy overlap between data science and economic thinking — through articles, lit reviews, and occasional deep dives.
-      </p>
-      <p>
-        Written by Fajer Aldousari, a data scientist and economics researcher based in Kuwait. A community for Muslim women in Data, Economics & Academia is coming soon.
-      </p>
-    </div>
+  <section id="about">
+    <h2>About</h2>
+    <p>By Fajer Aldousari, based in Kuwait.</p>
   </section>
 
-  <section class="topics">
-    <div class="topics-inner">
-      <div class="topics-header">
-        <h2>What we cover</h2>
-        <span>Focus areas</span>
-      </div>
-      <div class="topics-grid">
-        <div class="topic-card">
-          <div class="topic-number">01</div>
-          <div class="topic-name">Causal Inference</div>
-          <p class="topic-desc">RCTs, IV, diff-in-diff, and when correlation actually does imply something.</p>
-        </div>
-        <div class="topic-card">
-          <div class="topic-number">02</div>
-          <div class="topic-name">Algorithmic Systems</div>
-          <p class="topic-desc">How recommender systems, personalisation, and AI shape economic beliefs and choices.</p>
-        </div>
-        <div class="topic-card">
-          <div class="topic-number">03</div>
-          <div class="topic-name">Behavioural Economics</div>
-          <p class="topic-desc">Nudges, biases, and the gap between what people say they'll do and what they do.</p>
-        </div>
-        <div class="topic-card">
-          <div class="topic-number">04</div>
-          <div class="topic-name">Data & Society</div>
-          <p class="topic-desc">What the numbers say about inequality, policy, and the world we're building.</p>
-        </div>
-      </div>
-    </div>
+  <section>
+    <h2>What we cover</h2>
+    <ul class="topics">
+      <li>Causal Inference</li>
+      <li>Algorithmic Systems</li>
+      <li>Behavioural Economics</li>
+      <li>Data &amp; Society</li>
+    </ul>
   </section>
 
-  <section class="latest" id="writing">
+  <section id="writing">
     <h2>Latest writing</h2>
-    <div class="post-list">
-
-      <a href="#" class="post-item">
-        <div class="post-meta">
-          <span class="post-date">Coming soon</span>
-          <span class="post-tag">Research</span>
-        </div>
-        <div>
-          <p class="post-title">Do recommendation algorithms shift what you believe?</p>
-          <p class="post-excerpt">A longitudinal experiment testing whether personalised feeds causally amplify economic belief shifts — from inflation expectations to inequality perceptions.</p>
-        </div>
-      </a>
-
-      <a href="#" class="post-item">
-        <div class="post-meta">
-          <span class="post-date">Coming soon</span>
-          <span class="post-tag">Commentary</span>
-        </div>
-        <div>
-          <p class="post-title">Why economists should care about off-policy evaluation</p>
-          <p class="post-excerpt">Doubly robust estimators and the surprisingly elegant bridge between reinforcement learning and causal econometrics.</p>
-        </div>
-      </a>
-
-      <a href="#" class="post-item">
-        <div class="post-meta">
-          <span class="post-date">Coming soon</span>
-          <span class="post-tag">Data</span>
-        </div>
-        <div>
-          <p class="post-title">Reading the road: what accident data tells us about growth</p>
-          <p class="post-excerpt">An empirical look at Kuwait's road accident time series and what vehicle ownership patterns reveal about macroeconomic dynamics.</p>
-        </div>
-      </a>
-
-    </div>
+    <p>Coming soon.</p>
   </section>
 
-  <section class="subscribe" id="subscribe">
-    <div class="subscribe-inner">
-      <div>
-        <h2>Get it in your inbox</h2>
-        <p>New pieces when they're ready — no noise, no schedule pressure. Just good writing on data and economics.</p>
-      </div>
-      <div class="subscribe-form">
-        <input type="email" placeholder="your@email.com" />
-        <button type="button">Subscribe</button>
-        <span class="subscribe-note">No spam. Unsubscribe any time.</span>
-      </div>
-    </div>
+  <section id="subscribe">
+    <h2>Subscribe</h2>
+    <form onsubmit="return false;">
+      <input type="email" placeholder="your@email.com" />
+      <button type="submit">Subscribe</button>
+    </form>
   </section>
 
   <footer>
-    <div class="nav-logo-mark" style="width:32px;height:32px;background:var(--ink);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5px;">
-      <span style="display:block;color:#fff;font-family:var(--sans);font-weight:700;font-size:8px;letter-spacing:-0.02em;">data</span>
-      <span style="display:block;color:#fff;font-family:var(--sans);font-weight:700;font-size:8px;letter-spacing:-0.02em;">+econ</span>
-    </div>
-    <ul class="footer-links">
-      <li><a href="mailto:dataplusecon@gmail.com">dataplusecon@gmail.com</a></li>
-      <li><a href="https://instagram.com/dataplusecon" target="_blank">Instagram</a></li>
-      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-    </ul>
+    <a href="mailto:dataplusecon@gmail.com">dataplusecon@gmail.com</a>
+    <a href="https://instagram.com/dataplusecon" target="_blank">Instagram</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
   </footer>
 
 </body>
